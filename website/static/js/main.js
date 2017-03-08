@@ -122,9 +122,10 @@ function updateEmbedCodes(data) {
     var url = iFrameURL + '?uid=' + uid;
     var images = [slider_preview.imgBefore.image, slider_preview.imgAfter.image];
     var opts = optionsFromForm();
+    var noScroll = opts.makeResponsive ? ' scrolling="no"' : '';
     var width = opts.makeResponsive ? "100%" : setDims("naturalWidth", images);
     var height = slider_preview.calculateDims(setDims("naturalWidth", images), null).height;
-    code = '<iframe frameborder="0" class="juxtapose" width="' + width + '" height="' + height + '" src="' + url + '"></iframe>';
+    code = '<iframe frameborder="0" class="juxtapose"' + noScroll + ' width="' + width + '" height="' + height + '" src="' + url + '"></iframe>';
     $('#embed-code').text(code);
     $('#oembed-url').val(url);
 
